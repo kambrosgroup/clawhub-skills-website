@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passive Income Skills for OpenClaw</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+        
+        .badge span {
+            color: var(--accent);
+        }
+        
+        h1 {
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 8px;
+        }
+        
+        /* Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 64px;
+        }
+        
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .section-header p {
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+        
+        .skill-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            transition: all 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+        }
+        
+        .skill-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .skill-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .skill-card p {
+            color: var(--gray);
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .skill-price {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .skill-free {
+            background: var(--success);
+        }
+        
+        /* Bundles */
+        .bundles {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        }
+        
+        .bundle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .bundle-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        
+        .bundle-card.featured {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .bundle-badge {
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background: var(--accent);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .bundle-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .bundle-desc {
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+        
+        .bundle-price {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        
+        .bundle-original {
+            text-decoration: line-through;
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+        
+        .bundle-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        
+        .bundle-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .bundle-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        /* How It Works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 24px;
+        }
+        
+        .step h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .step p {
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .footer-section a {
+            display: block;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            padding: 8px 0;
+            transition: color 0.2s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 60px;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bundle-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="badge">
+                <span>🚀</span> Now Available on ClawHub
+            </div>
+            <h1>Automate Your Freelance Business with OpenClaw Skills</h1>
+            <p>8 powerful skills that handle content creation, lead qualification, proposals, and billing — so you can focus on the work that matters.</p>
+            <div class="cta-group">
+                <a href="#skills" class="btn btn-primary">Browse Skills</a>
+                <a href="https://github.com/kambrosgroup/passive-income-skills" class="btn btn-secondary">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="container">
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Skills Available</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Free Templates</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Premium Tools</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">40+</div>
+                <div class="stat-label">Hours Saved/Month</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Free Skills</h2>
+                <p>Get started with these free templates. Upgrade anytime for advanced features.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">📝</div>
+                    <h3>Simple Proposal Template</h3>
+                    <p>Create professional proposals in minutes. Perfect for quick quotes and simple projects.</p>
+                    <span class="skill-price skill-free">Free</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">💰</div>
+                    <h3>Invoice Template</h3>
+                    <p>Clean, professional invoices with your branding. No complex tracking required.</p>
+                    <span class="skill-price skill-free">Free</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">💡</div>
+                    <h3>Content Ideas</h3>
+                    <p>Never run out of things to write about. Generate blog posts, social topics, and content calendars.</p>
+                    <span class="skill-price skill-free">Free</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Skills -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Premium Skills</h2>
+                <p>Advanced automation for serious freelancers and agencies.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">🔄</div>
+                    <h3>Content Repurposer</h3>
+                    <p>Turn one blog post into Twitter threads, LinkedIn posts, newsletters, and social snippets. Maximize your content ROI.</p>
+                    <span class="skill-price">$25</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">🔍</div>
+                    <h3>SEO Content Engine</h3>
+                    <p>Complete SEO workflow: keyword research → SERP analysis → optimized outlines → ranking content.</p>
+                    <span class="skill-price">$35</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">🤖</div>
+                    <h3>Client Intake Bot</h3>
+                    <p>Automated lead qualification with scoring, auto-responses, and smart routing. Only talk to hot prospects.</p>
+                    <span class="skill-price">$30</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">📄</div>
+                    <h3>Proposal Generator</h3>
+                    <p>Transform client briefs into professional proposals with executive summaries, pricing tiers, and terms.</p>
+                    <span class="skill-price">$40</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">📊</div>
+                    <h3>Invoice Tracker</h3>
+                    <p>Complete billing workflow: professional invoices, payment tracking, automated reminders, and financial reports.</p>
+                    <span class="skill-price">$30</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bundles -->
+    <section class="section bundles" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bundle & Save</h2>
+                <p>Get more value with our curated skill bundles.</p>
+            </div>
+            <div class="bundle-grid">
+                <div class="bundle-card">
+                    <h3>Content Creator Suite</h3>
+                    <p class="bundle-desc">For content marketers and creators</p>
+                    <div class="bundle-price">$49</div>
+                    <div class="bundle-original">$60 value</div>
+                    <ul class="bundle-features">
+                        <li>Content Repurposer</li>
+                        <li>SEO Content Engine</li>
+                        <li>Lifetime updates</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Started</a>
+                </div>
+                <div class="bundle-card featured">
+                    <div class="bundle-badge">Best Value</div>
+                    <h3>Complete Stack</h3>
+                    <p class="bundle-desc">Everything you need to automate</p>
+                    <div class="bundle-price">$119</div>
+                    <div class="bundle-original">$160 value</div>
+                    <ul class="bundle-features">
+                        <li>All 5 premium skills</li>
+                        <li>3 free templates included</li>
+                        <li>Priority support</li>
+                        <li>Lifetime updates</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Complete Stack</a>
+                </div>
+                <div class="bundle-card">
+                    <h3>Freelancer Revenue Engine</h3>
+                    <p class="bundle-desc">For service businesses</p>
+                    <div class="bundle-price">$79</div>
+                    <div class="bundle-original">$100 value</div>
+                    <ul class="bundle-features">
+                        <li>Client Intake Bot</li>
+                        <li>Proposal Generator</li>
+                        <li>Invoice Tracker</li>
+                        <li>Lifetime updates</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Get started in minutes with OpenClaw.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Install OpenClaw</h3>
+                    <p>Set up OpenClaw and the ClawHub CLI on your system.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Install Skills</h3>
+                    <p>Run <code>clawhub install [skill-name]</code> to add skills to your setup.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Just Ask</h3>
+                    <p>Tell OpenClaw what you need. The skills handle the rest automatically.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Save Hours</h3>
+                    <p>Get professional results in seconds instead of hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); color: white;">
+        <div class="container" style="text-align: center;">
+            <h2 style="font-size: 40px; margin-bottom: 16px;">Ready to Automate Your Business?</h2>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">Join freelancers who are saving 10+ hours every week with these OpenClaw skills.</p>
+            <div class="cta-group" style="justify-content: center;">
+                <a href="#skills" class="btn btn-primary">Browse All Skills</a>
+                <a href="https://github.com/kambrosgroup/passive-income-skills" class="btn btn-secondary">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <a href="#skills">All Skills</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#bundles">Bundles</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="https://github.com/kambrosgroup/passive-income-skills">GitHub</a>
+                    <a href="https://clawhub.ai">ClawHub</a>
+                    <a href="https://docs.openclaw.ai">OpenClaw Docs</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="mailto:kambrosgroup@gmail.com">Contact</a>
+                    <a href="https://github.com/kambrosgroup/passive-income-skills/issues">Issues</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Passive Income Skills. Built for OpenClaw.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
