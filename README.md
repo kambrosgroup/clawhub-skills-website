@@ -1,4 +1,4 @@
-# Passive Income Skills Website
+# OpenHub Skills Website
 
 This is the website for the Passive Income Skill Stack - a collection of OpenClaw skills for freelancers.
 
